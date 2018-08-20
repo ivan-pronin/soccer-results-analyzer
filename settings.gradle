@@ -1,5 +1,4 @@
 rootProject.name = 'soccer-results-analyzer'
 
-include 'sportmonks-rest-client'
-include 'sportmonks-db'
+include 'sportmonks-rest-client', 'sportmonks-db', 'soccer-results-analyzer'
 
