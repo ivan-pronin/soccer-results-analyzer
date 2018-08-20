@@ -1,0 +1,5 @@
+rootProject.name = 'soccer-results-analyzer'
+
+include 'sportmonks-rest-client'
+include 'sportmonks-db'
+
