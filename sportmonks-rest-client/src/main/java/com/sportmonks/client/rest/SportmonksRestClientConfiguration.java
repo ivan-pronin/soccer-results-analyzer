@@ -12,7 +12,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.util.function.Supplier;
 
 @Configuration
-@ComponentScan("com.sportmonks.client.rest")
+@ComponentScan
 @Import({GetByIdOrAllRestConfiguration.class, GetByIdOrSeasonRestConfiguration.class})
 public class SportmonksRestClientConfiguration {
 
