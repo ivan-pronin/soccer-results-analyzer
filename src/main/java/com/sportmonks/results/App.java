@@ -22,8 +22,10 @@ public class App {
         ConfigurableApplicationContext context = SpringApplication.run(App.class);
         PersistRestServiceHelper persistRestDataService = context.getBean(PersistRestServiceHelper.class);
 
-        persistRestDataService.persistContinents();
-        persistRestDataService.persistCountries();
+//        persistRestDataService.persistContinents();
+//        persistRestDataService.persistCountries();
+//        persistRestDataService.persistLeagues();
+        persistRestDataService.persistSeasons();
 //
 //        IPersistDataService persistDataService = context.getBean(IPersistDataService.class);
 //        persistDataService.persistAll();
