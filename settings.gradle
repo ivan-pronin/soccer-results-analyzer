@@ -1,4 +1,4 @@
 rootProject.name = 'soccer-results-analyzer'
 
-include 'sportmonks-rest-client', 'sportmonks-db', 'soccer-results-analyzer'
+include 'sportmonks-rest-client', 'sportmonks-db', 'sportmonks-persist-service'
 

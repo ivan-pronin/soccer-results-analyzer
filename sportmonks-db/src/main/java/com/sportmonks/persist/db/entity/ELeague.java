@@ -17,20 +17,20 @@ public class ELeague implements Serializable {
     @Column(name = "SPORTMONKS_ID")
     private Long sportmonksId;
 
-    @OneToOne
-    @JoinColumn(name = "COUNTRY_SPORTMONKS_ID", referencedColumnName = "SPORTMONKS_ID")
-    private ECountry country;
-
-    public ELeague() {
-    }
-
-    public ELeague(ECountry country, long sportmonksId, String name) {
-        this.country = country;
-        this.sportmonksId = sportmonksId;
-        this.name = name;
-    }
-
-    public Long getSportmonksId() {
-        return sportmonksId;
-    }
+//    @OneToOne
+//    @JoinColumn(name = "COUNTRY_SPORTMONKS_ID", referencedColumnName = "SPORTMONKS_ID")
+//    private ECountry country;
+//
+//    public ELeague() {
+//    }
+//
+//    public ELeague(ECountry country, long sportmonksId, String name) {
+//        this.country = country;
+//        this.sportmonksId = sportmonksId;
+//        this.name = name;
+//    }
+//
+//    public Long getSportmonksId() {
+//        return sportmonksId;
+//    }
 }

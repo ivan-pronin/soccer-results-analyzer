@@ -3,8 +3,8 @@ package com.sportmonks.persist.db.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "season")
-public class ESeason {
+@Table(name = "current_season")
+public class ECurrentSeason {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,7 +20,7 @@ public class ESeason {
 //    @JoinColumn(name = "LEAGUE_SPORTMONKS_ID", referencedColumnName = "SPORTMONKS_ID")
 //    private ELeague league;
 //
-//    public ESeason(Long sportmonksId, String name, ELeague league) {
+//    public ECurrentSeason(Long sportmonksId, String name, ELeague league) {
 //        this.sportmonksId = sportmonksId;
 //        this.name = name;
 //        this.league = league;

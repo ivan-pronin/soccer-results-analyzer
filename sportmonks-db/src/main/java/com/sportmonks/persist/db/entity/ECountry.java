@@ -2,7 +2,10 @@ package com.sportmonks.persist.db.entity;
 
 import com.sportmonks.client.core.data.entity.Country;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
@@ -10,11 +13,7 @@ import java.io.Serializable;
 public class ECountry implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @Column(nullable = false, unique = true, name = "SPORTMONKS_ID")
-    private Long sportmonksId;
 
     @Column(nullable = false)
     private String name;
@@ -23,16 +22,7 @@ public class ECountry implements Serializable {
     }
 
     public ECountry(Country country) {
-        this.sportmonksId = country.getId();
+        this.id = country.getId();
         this.name = country.getName();
-    }
-
-    public ECountry(Long sportmonksId, String name) {
-        this.sportmonksId = sportmonksId;
-        this.name = name;
-    }
-
-    public Long getSportmonksId() {
-        return sportmonksId;
     }
 }
