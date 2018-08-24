@@ -25,7 +25,9 @@ public class App {
 //        persistRestDataService.persistContinents();
 //        persistRestDataService.persistCountries();
 //        persistRestDataService.persistLeagues();
-        persistRestDataService.persistSeasons();
+//        persistRestDataService.persistSeasons();
+//        persistRestDataService.persistStages();
+        persistRestDataService.persistRounds();
 //
 //        IPersistDataService persistDataService = context.getBean(IPersistDataService.class);
 //        persistDataService.persistAll();

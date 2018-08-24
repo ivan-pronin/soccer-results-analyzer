@@ -26,4 +26,12 @@ public class ESeason {
         this.name = season.getName();
         this.league = eLeague;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public ELeague getLeague() {
+        return league;
+    }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class IPersistSeasonsRestEntityService implements IPersistByIdRestEntityService<ESeason> {
+public class PersistSeasonsRestEntityService implements IPersistByIdRestEntityService<ESeason> {
 
     @Autowired
     private ISeasonsRepository repository;

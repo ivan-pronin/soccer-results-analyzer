@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class IPersistContinentsRestEntityService implements IPersistByIdRestEntityService<EContinent> {
+public class PersistContinentsRestEntityService implements IPersistByIdRestEntityService<EContinent> {
 
     @Autowired
     IContinentsRepository repository;

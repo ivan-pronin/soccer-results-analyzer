@@ -1,10 +1,8 @@
 package com.sportmonks.results;
 
-import com.sportmonks.persist.db.entity.EContinent;
-import com.sportmonks.persist.db.entity.ECountry;
-import com.sportmonks.persist.db.entity.ELeague;
-import com.sportmonks.persist.db.entity.ESeason;
+import com.sportmonks.persist.db.entity.*;
 import com.sportmonks.persist.entity.IPersistByIdRestEntityService;
+import com.sportmonks.persist.entity.IPersistBySeasonRestEntityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +17,10 @@ class PersistRestServiceHelper {
     private IPersistByIdRestEntityService<ELeague> leaguePersistService;
     @Autowired
     private IPersistByIdRestEntityService<ESeason> seasonPersistService;
+    @Autowired
+    private IPersistBySeasonRestEntityService<EStage> stagePersistService;
+    @Autowired
+    private IPersistBySeasonRestEntityService<ERound> roundPersistService;
 
     public void persistContinents() {
         continentPersisrService.persistAllEntities();
@@ -34,5 +36,12 @@ class PersistRestServiceHelper {
 
     public void persistSeasons() {
         seasonPersistService.persistAllEntities();
+    }
+
+    public void persistStages() {
+        stagePersistService.persistAllEntities(0L);
+    }
+    public void persistRounds() {
+        roundPersistService.persistAllEntities(0L);
     }
 }

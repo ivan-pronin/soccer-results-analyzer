@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class IPersistLeaguesRestEntityService implements IPersistByIdRestEntityService<ELeague> {
+public class PersistLeaguesRestEntityService implements IPersistByIdRestEntityService<ELeague> {
 
     @Autowired
     private ILeaguesRepository repository;
