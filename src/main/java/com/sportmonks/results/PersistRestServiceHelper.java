@@ -21,6 +21,10 @@ class PersistRestServiceHelper {
     private IPersistBySeasonRestEntityService<EStage> stagePersistService;
     @Autowired
     private IPersistBySeasonRestEntityService<ERound> roundPersistService;
+    @Autowired
+    private IPersistBySeasonRestEntityService<EVenue> venuePersistService;
+    @Autowired
+    private IPersistBySeasonRestEntityService<ETeam> teamPersistService;
 
     public void persistContinents() {
         continentPersisrService.persistAllEntities();
@@ -41,7 +45,16 @@ class PersistRestServiceHelper {
     public void persistStages() {
         stagePersistService.persistAllEntities(0L);
     }
+
     public void persistRounds() {
         roundPersistService.persistAllEntities(0L);
+    }
+
+    public void persistVenues() {
+        venuePersistService.persistAllEntities(0L);
+    }
+
+    public void persistTeams() {
+        teamPersistService.persistAllEntities(0L);
     }
 }

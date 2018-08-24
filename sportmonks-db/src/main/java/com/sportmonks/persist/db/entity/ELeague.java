@@ -27,4 +27,8 @@ public class ELeague implements Serializable {
         this.name = league.getName();
         this.country = country;
     }
+
+    public ECountry getCountry() {
+        return country;
+    }
 }

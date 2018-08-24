@@ -17,8 +17,10 @@ public class Team {
     private Integer legacyId;
     @JsonProperty("name")
     private String name;
+    @JsonProperty("short_code")
+    private String shortCode;
     @JsonProperty("twitter")
-    private Object twitter;
+    private String twitter;
     @JsonProperty("country_id")
     private Long countryId;
     @JsonProperty("national_team")
@@ -76,12 +78,12 @@ public class Team {
     }
 
     @JsonProperty("twitter")
-    public Object getTwitter() {
+    public String getTwitter() {
         return twitter;
     }
 
     @JsonProperty("twitter")
-    public void setTwitter(Object twitter) {
+    public void setTwitter(String twitter) {
         this.twitter = twitter;
     }
 
@@ -197,5 +199,9 @@ public class Team {
 
     public Stats getStats() {
         return stats;
+    }
+
+    public String getShortCode() {
+        return shortCode;
     }
 }
