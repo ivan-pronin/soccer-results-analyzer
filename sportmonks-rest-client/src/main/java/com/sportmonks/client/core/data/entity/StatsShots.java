@@ -1,49 +1,44 @@
 package com.sportmonks.client.core.data.entity;
 
-import com.fasterxml.jackson.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({ "shots_total", "shots_on_goal" })
 public class StatsShots {
 
-	@JsonProperty("shots_total")
-	private Object shotsTotal;
-	@JsonProperty("shots_on_goal")
-	private Object shotsOnGoal;
-	@JsonIgnore
-	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Integer total;
 
-	@JsonProperty("shots_total")
-	public Object getShotsTotal() {
-		return shotsTotal;
-	}
+    @JsonProperty("ongoal")
+    private Integer onGoal;
+    @JsonProperty("offgoal")
+    private Integer offGoal;
+    private Integer blocked;
+    @JsonProperty("insidebox")
+    private Integer insideBox;
+    @JsonProperty("outsidebox")
+    private Integer outsideBox;
 
-	@JsonProperty("shots_total")
-	public void setShotsTotal(Object shotsTotal) {
-		this.shotsTotal = shotsTotal;
-	}
+    public Integer getTotal() {
+        return total;
+    }
 
-	@JsonProperty("shots_on_goal")
-	public Object getShotsOnGoal() {
-		return shotsOnGoal;
-	}
+    public Integer getOnGoal() {
+        return onGoal;
+    }
 
-	@JsonProperty("shots_on_goal")
-	public void setShotsOnGoal(Object shotsOnGoal) {
-		this.shotsOnGoal = shotsOnGoal;
-	}
+    public Integer getOffGoal() {
+        return offGoal;
+    }
 
-	@JsonAnyGetter
-	public Map<String, Object> getAdditionalProperties() {
-		return this.additionalProperties;
-	}
+    public Integer getBlocked() {
+        return blocked;
+    }
 
-	@JsonAnySetter
-	public void setAdditionalProperty(String name, Object value) {
-		this.additionalProperties.put(name, value);
-	}
+    public Integer getInsideBox() {
+        return insideBox;
+    }
 
+    public Integer getOutsideBox() {
+        return outsideBox;
+    }
 }

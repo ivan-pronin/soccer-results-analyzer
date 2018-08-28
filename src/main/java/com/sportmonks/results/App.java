@@ -3,10 +3,17 @@ package com.sportmonks.results;
 import com.sportmonks.client.rest.SportmonksRestClientConfiguration;
 import com.sportmonks.persist.SportmonksPersistServiceConfiguration;
 import com.sportmonks.persist.db.DbConfiguration;
+import com.sportmonks.persist.db.entity.ETestContainer;
+import com.sportmonks.persist.db.entity.ETestObj;
+import com.sportmonks.persist.db.repository.ITestContainerRepository;
+import com.sportmonks.persist.db.repository.ITestObjRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
+
+import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 @Import({SportmonksRestClientConfiguration.class, DbConfiguration.class, SportmonksPersistServiceConfiguration.class})
@@ -22,6 +29,26 @@ public class App {
         ConfigurableApplicationContext context = SpringApplication.run(App.class);
         PersistRestServiceHelper persistRestDataService = context.getBean(PersistRestServiceHelper.class);
 
+        ITestObjRepository testObjRepository = context.getBean(ITestObjRepository.class);
+        ITestContainerRepository testContainerRepository = context.getBean(ITestContainerRepository.class);
+
+        ETestContainer container = new ETestContainer("c1");
+        List<ETestObj> objs = Arrays.asList(
+                new ETestObj("t1", container),
+                new ETestObj("t2", container)
+        );
+
+        container.setTestObjs(objs);
+
+        ETestContainer byId = testContainerRepository.findById(132L).orElse(null);
+        List<ETestObj> testObjs = byId.getTestObjs();
+        System.out.println(testObjs.get(0));
+        System.out.println(testObjs.get(1));
+
+        System.out.println(testObjRepository.findById(133L).orElse(null));
+
+        persistRestDataService.persistFixture(null);
+//        testContainerRepository.save(container);
 //        persistRestDataService.persistContinents();
 //        persistRestDataService.persistCountries();
 //        persistRestDataService.persistLeagues();
@@ -29,7 +56,7 @@ public class App {
 //        persistRestDataService.persistStages();
 //        persistRestDataService.persistRounds();
 //        persistRestDataService.persistVenues();
-        persistRestDataService.persistTeams();
+//        persistRestDataService.persistTeams();
 //
 //        IPersistDataService persistDataService = context.getBean(IPersistDataService.class);
 //        persistDataService.persistAll();

@@ -1,8 +1,10 @@
 package com.sportmonks.results;
 
+import com.sportmonks.client.core.data.entity.Fixture;
 import com.sportmonks.persist.db.entity.*;
 import com.sportmonks.persist.entity.IPersistByIdRestEntityService;
 import com.sportmonks.persist.entity.IPersistBySeasonRestEntityService;
+import com.sportmonks.persist.entity.IPersistFixturesRestEntityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +27,10 @@ class PersistRestServiceHelper {
     private IPersistBySeasonRestEntityService<EVenue> venuePersistService;
     @Autowired
     private IPersistBySeasonRestEntityService<ETeam> teamPersistService;
+
+    @Autowired
+    private IPersistFixturesRestEntityService fixturesPersistService;
+
 
     public void persistContinents() {
         continentPersisrService.persistAllEntities();
@@ -56,5 +62,9 @@ class PersistRestServiceHelper {
 
     public void persistTeams() {
         teamPersistService.persistAllEntities(0L);
+    }
+
+    public void persistFixture(Fixture fixture) {
+        fixturesPersistService.persistEntity(fixture);
     }
 }
