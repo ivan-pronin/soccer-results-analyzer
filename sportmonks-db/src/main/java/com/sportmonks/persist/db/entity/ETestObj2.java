@@ -3,8 +3,8 @@ package com.sportmonks.persist.db.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "test_obj")
-public class ETestObj {
+@Table(name = "test_obj2")
+public class ETestObj2 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,10 +17,10 @@ public class ETestObj {
     @JoinColumn(name = "container_id", nullable = false)
     private ETestContainer container;
 
-    public ETestObj() {
+    public ETestObj2() {
     }
 
-    public ETestObj(String name, ETestContainer container) {
+    public ETestObj2(String name, ETestContainer container) {
         this.name = name;
         this.container = container;
     }

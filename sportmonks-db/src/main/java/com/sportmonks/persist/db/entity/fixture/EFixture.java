@@ -10,6 +10,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "fixture")
+@NamedEntityGraph(name = "EFixture.stats",
+        attributeNodes = {@NamedAttributeNode("goals"), @NamedAttributeNode("cards")})
 public class EFixture {
 
     @Id
@@ -107,16 +109,6 @@ public class EFixture {
         this.attendance = fixture.getAttendance();
         this.winningOddsCalculated = fixture.getWinningOddsCalculated();
         this.deleted = fixture.getDeleted();
-//        this.weatherReport = weatherReport;
-//        this.formations = formations;
-//        this.scores = scores;
-//        this.time = time;
-//        this.coaches = coaches;
-//        this.standings = standings;
-//        this.goals = goals;
-//        this.cards = cards;
-//        this.corners = corners;
-//        this.stats = stats;
         this.league = league;
         this.season = season;
         this.stage = stage;

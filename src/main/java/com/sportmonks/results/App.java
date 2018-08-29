@@ -5,17 +5,22 @@ import com.sportmonks.persist.SportmonksPersistServiceConfiguration;
 import com.sportmonks.persist.db.DbConfiguration;
 import com.sportmonks.persist.db.entity.ETestContainer;
 import com.sportmonks.persist.db.entity.ETestObj;
+import com.sportmonks.persist.db.entity.ETestObj2;
+import com.sportmonks.persist.db.entity.fixture.EFixture;
 import com.sportmonks.persist.db.repository.ITestContainerRepository;
 import com.sportmonks.persist.db.repository.ITestObjRepository;
+import com.sportmonks.persist.db.repository.fixture.IFixturesRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.util.Assert;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @SpringBootApplication
+@EnableTransactionManagement
 @Import({SportmonksRestClientConfiguration.class, DbConfiguration.class, SportmonksPersistServiceConfiguration.class})
 public class App {
 
@@ -29,26 +34,38 @@ public class App {
         ConfigurableApplicationContext context = SpringApplication.run(App.class);
         PersistRestServiceHelper persistRestDataService = context.getBean(PersistRestServiceHelper.class);
 
-        ITestObjRepository testObjRepository = context.getBean(ITestObjRepository.class);
-        ITestContainerRepository testContainerRepository = context.getBean(ITestContainerRepository.class);
-
-        ETestContainer container = new ETestContainer("c1");
-        List<ETestObj> objs = Arrays.asList(
-                new ETestObj("t1", container),
-                new ETestObj("t2", container)
-        );
-
-        container.setTestObjs(objs);
-
-        ETestContainer byId = testContainerRepository.findById(132L).orElse(null);
-        List<ETestObj> testObjs = byId.getTestObjs();
-        System.out.println(testObjs.get(0));
-        System.out.println(testObjs.get(1));
-
-        System.out.println(testObjRepository.findById(133L).orElse(null));
-
-        persistRestDataService.persistFixture(null);
+        IFixturesRepository fixturesRepository = context.getBean(IFixturesRepository.class);
+        EFixture eFixture = fixturesRepository.findById(1871899L).get();
+        System.out.println(eFixture);
+        System.out.println(eFixture.getWeatherReport());
+        System.out.println(eFixture.getGoals());
+//        ITestObjRepository testObjRepository = context.getBean(ITestObjRepository.class);
+//        ITestContainerRepository testContainerRepository = context.getBean(ITestContainerRepository.class);
+//
+//        ETestContainer container = new ETestContainer("c1");
+//        Set<ETestObj2> objs2 = new HashSet<>();
+//        objs2.add( new ETestObj2("t2-1", container));
+//        objs2.add( new ETestObj2("t2-2", container));
+//
+//
+//        Set<ETestObj> objs = new HashSet<>();
+//        objs.add( new ETestObj("t1-1", container));
+//        objs.add( new ETestObj("t1-2", container));
+//        container.setTestObjs(objs);
+//        container.setTestObjs2(objs2);
+//
 //        testContainerRepository.save(container);
+//
+//        ETestContainer byId = testContainerRepository.findByName("c1");
+//        Set<ETestObj2> testObjs2 = byId.getTestObjs2();
+//        Set<ETestObj> testObjs = byId.getTestObjs();
+//        System.out.println("Obj1 size:" + testObjs.size());
+//        System.out.println("Obj2 size:" + testObjs2.size());
+//
+//        System.out.println(testObjRepository.findById(133L).orElse(null));
+
+
+//        persistRestDataService.persistFixture(null);
 //        persistRestDataService.persistContinents();
 //        persistRestDataService.persistCountries();
 //        persistRestDataService.persistLeagues();
